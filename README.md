@@ -1,6 +1,8 @@
 # AgentGrid
 
-**One menu bar click to see every AI coding agent you have running — tiled in a clean grid. Click again and they're gone.**
+**A tiny macOS menu bar app: one click shows every AI coding agent you have running in Terminal — tiled in a clean grid. Click again and they're gone.**
+
+![macOS 14+](https://img.shields.io/badge/macOS-14%2B-black?logo=apple) ![Swift](https://img.shields.io/badge/Swift-native-orange?logo=swift) ![Menu bar app](https://img.shields.io/badge/menu%20bar-app-blue) ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
 Running three Claude Code sessions, a Codex run and a Gemini CLI chat in separate Terminal windows? AgentGrid finds every Terminal window that has an AI agent in it, brings them all to the front and splits the screen evenly between them. A second click hides Terminal and drops you straight back into whatever you were doing — your editor, your browser, your game.
 
