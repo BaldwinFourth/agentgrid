@@ -9,7 +9,7 @@ Running three Claude Code sessions, a Codex run and a Gemini CLI chat in separat
 - **Zero setup.** Sessions are detected automatically; nothing to configure, no window to tag.
 - **Even grid, any count.** 1 window fills the screen, 2–3 sit side by side, 4 → 2×2, 5–6 → 2×3, 7–9 → 3×3, and so on (⌈√n⌉ columns). A short last row stretches to fill — no holes.
 - **Stable positions.** Windows are ordered by when they were opened, so each session lands in the same spot every time.
-- **Only agents.** Plain shell windows are left alone.
+- **Only agents.** Plain shell windows are never moved or resized. (The second click hides Terminal as a whole, so they hide too: macOS hides apps, not single windows.)
 - **Back where you were.** The second click hides Terminal and reactivates the app you came from. Sessions keep running.
 - **Tiny and native.** ~250 lines of Swift, no dependencies, no Accessibility permission — only Automation access to Terminal.
 
