@@ -78,17 +78,21 @@ final class AgentGridApp: NSObject, NSApplicationDelegate {
         _ = runAppleScript(arrangeScript(windows: windows, cells: gridCells(count: windows.count, in: area)))
     }
 
-    /// One "id:tab:tty" line per Terminal tab.
+    /// One "id:tab:tty" line per Terminal tab. Terminal can also list helper windows that have no id or tabs
+    /// (seen after connecting an audio device); reading them raises -1728, so they are skipped instead of
+    /// failing the whole listing.
     private static let listingScript = """
     tell application "Terminal"
         set output to ""
         repeat with w in windows
-            set wid to id of w
-            set i to 0
-            repeat with t in tabs of w
-                set i to i + 1
-                set output to output & wid & ":" & i & ":" & (tty of t) & linefeed
-            end repeat
+            try
+                set wid to id of w
+                set i to 0
+                repeat with t in tabs of w
+                    set i to i + 1
+                    set output to output & wid & ":" & i & ":" & (tty of t) & linefeed
+                end repeat
+            end try
         end repeat
         return output
     end tell
