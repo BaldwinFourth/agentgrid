@@ -5,6 +5,16 @@ The format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-07
+### Added
+- README: a "Privacy first" section (no telemetry, no network connections, nothing saved or sent) and a link to claude-code-broadcast.
+
+### Changed
+- Launch at Login is now opt-in: AgentGrid no longer adds itself as a login item on launch. Turn it on from the right-click menu. Existing login items are left as they are.
+
+### Fixed
+- Turning Launch at Login off from the menu no longer gets undone the next time AgentGrid is opened.
+
 ## [0.1.1] - 2026-11-03
 ### Fixed
 - Clicking the menu bar icon to bring the agent windows back only beeped and left Terminal hidden when Terminal listed a helper window that has no id or tabs (seen after connecting an audio device such as a HomePod or a microphone). Such windows are now skipped, so the agent windows are tiled again.
@@ -17,6 +27,7 @@ The format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/
 - `AgentGrid --show` to tile once from the shell.
 - `./build.sh test|install`: pure-logic tests; build, ad-hoc sign and install to `~/Applications`.
 
-[unreleased]: https://github.com/BaldwinFourth/agentgrid/compare/v0.1.1...HEAD
+[unreleased]: https://github.com/BaldwinFourth/agentgrid/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/BaldwinFourth/agentgrid/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/BaldwinFourth/agentgrid/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/BaldwinFourth/agentgrid/releases/tag/v0.1.0

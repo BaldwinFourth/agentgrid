@@ -2,7 +2,7 @@
 
 **A tiny macOS menu bar app: one click shows every AI coding agent you have running in Terminal — tiled in a clean grid. Click again and they're gone.**
 
-![macOS 14+](https://img.shields.io/badge/macOS-14%2B-black?logo=apple) ![Swift](https://img.shields.io/badge/Swift-native-orange?logo=swift) ![Menu bar app](https://img.shields.io/badge/menu%20bar-app-blue) ![License: MIT](https://img.shields.io/badge/license-MIT-green)
+![macOS 14+](https://img.shields.io/badge/macOS-14%2B-black?logo=apple) ![Swift](https://img.shields.io/badge/Swift-native-orange?logo=swift) ![Menu bar app](https://img.shields.io/badge/menu%20bar-app-blue) ![No telemetry](https://img.shields.io/badge/telemetry-none-brightgreen) ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
 Running three Claude Code sessions, a Codex run and a Gemini CLI chat in separate Terminal windows? AgentGrid finds every Terminal window that has an AI agent in it, brings them all to the front and splits the screen evenly between them. A second click hides Terminal and drops you straight back into whatever you were doing — your editor, your browser, your game.
 
@@ -12,6 +12,13 @@ Running three Claude Code sessions, a Codex run and a Gemini CLI chat in separat
 - **Only agents.** Plain shell windows are never moved or resized. (The second click hides Terminal as a whole, so they hide too: macOS hides apps, not single windows.)
 - **Back where you were.** The second click hides Terminal and reactivates the app you came from. Sessions keep running.
 - **Tiny and native.** ~250 lines of Swift, no dependencies, no Accessibility permission — only Automation access to Terminal.
+
+## Privacy first
+
+- **Runs entirely on your Mac.** No telemetry, no analytics, no crash reporting, no update checks, and it makes no network connections. There is no third-party code either: the app has zero dependencies.
+- **Reads, never saves.** To find agent sessions it reads the process list (`ps`, including command lines) and Terminal's window and tab list (AppleScript) in memory. Nothing is saved or sent anywhere; error notices go only to the macOS system log on your Mac.
+- **Minimal permissions.** Only Automation access to Terminal. No Accessibility, Screen Recording or Full Disk Access.
+- **Opt-in only.** It changes no system setting on its own. Launch at Login stays off until you turn it on from the right-click menu.
 
 ## Supported agents
 
@@ -33,7 +40,7 @@ cd agentgrid
 
 The first time you click the grid icon, macOS asks **"AgentGrid wants access to control Terminal"** — click **Allow**. (You can change this later in System Settings → Privacy & Security → Automation.) Because the build is ad-hoc signed, macOS may ask again after you rebuild.
 
-AgentGrid registers itself to launch at login; toggle that from the right-click menu.
+Launch at Login is off by default; turn it on (or off again) from the right-click menu.
 
 ## Usage
 
@@ -56,6 +63,10 @@ Pure logic lives in [`Layout.swift`](Sources/AgentGrid/Layout.swift) and is cove
 
 - Terminal.app only for now (iTerm2, Ghostty, WezTerm etc. are not supported yet).
 - Uses the main display.
+
+## See also
+
+- [**claude-code-broadcast**](https://github.com/BaldwinFourth/claude-code-broadcast), by the same author: a Claude Code skill that tells every running session to finish its work while you're away, applies only reversible decisions, and leaves you one morning page. It also runs locally, with no telemetry.
 
 ## License
 

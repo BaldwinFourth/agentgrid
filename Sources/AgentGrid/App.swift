@@ -33,7 +33,6 @@ final class AgentGridApp: NSObject, NSApplicationDelegate {
             button.action = #selector(clicked)
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
-        if SMAppService.mainApp.status != .enabled { try? SMAppService.mainApp.register() }
     }
 
     @objc private func clicked() {
